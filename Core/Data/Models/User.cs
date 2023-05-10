@@ -29,6 +29,6 @@ namespace Core.Data.Models
         /// Default Constructor for EntityFramework
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
-        private User() { throw new NotImplementedException(); }
+        private User() { }
     }
 }
