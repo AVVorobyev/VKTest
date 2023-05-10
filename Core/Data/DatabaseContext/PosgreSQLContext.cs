@@ -8,9 +8,9 @@ namespace Core.Data.DatabaseContext
         public PosgreSQLContext() : base() { }
         public PosgreSQLContext(DbContextOptions<PosgreSQLContext> options) : base(options) { }
 
-        public DbSet<User>? User { get; set; }
-        public DbSet<UserGroup>? UserGroup { get; set; }
-        public DbSet<UserState>? UserState { get; set; }
+        public DbSet<User> User { get; set; } = null!;
+        public DbSet<UserGroup> UserGroup { get; set; } = null!;
+        public DbSet<UserState> UserState { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
