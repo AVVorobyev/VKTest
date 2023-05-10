@@ -2,6 +2,7 @@
 using Core.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using System.Collections.Concurrent;
 using System.Linq.Expressions;
 
@@ -16,9 +17,9 @@ namespace Core.Data
         private readonly DbSet<UserGroup> _dbSetUserGroup;
         private readonly DbSet<UserState> _dbSetUserState;
 
-        public UserRepository(ILogger<UserRepository> logger, PosgreSQLContext context)
+        public UserRepository(ILogger<UserRepository>? logger, PosgreSQLContext context)
         {
-            _logger = logger;
+            _logger = logger ?? NullLogger<UserRepository>.Instance;
             _context = context;
             _dbSetUser = _context.Set<User>();
             _dbSetUserGroup = _context.Set<UserGroup>();
